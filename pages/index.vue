@@ -32,6 +32,7 @@
 <script>
 import data from "../static/data";
 import Markercustom from "@/components/MarkerCustom.vue";
+import checkIn from "../static/turf";
 export default {
   head() {
     return {
@@ -70,14 +71,15 @@ export default {
   },
   methods: {
     addMarker(e) {
-      this.markers.push(Object.values(e.latlng));
+      let check = checkIn(
+        [e.latlng.lng, e.latlng.lat],
+        this.dato.features[0].geometry.coordinates[0]
+      );
+      if (check) {
+        this.markers.push(Object.values(e.latlng));
+      }
     },
     setMarker(e) {
-      // let point = [e.position.latitude, e.position.longitude];
-      // let ponts = turf.point(point);
-      // let algo = turf.lineString(this.dato.features[0].geometry.coordinates[0]);
-      // let porfavor = turf.booleanContains(algo, ponts);
-      // console.log(porfavor);
       this.result.markers.push(e);
     },
     deleteMarker(e) {

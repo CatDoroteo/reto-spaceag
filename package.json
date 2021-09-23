@@ -10,9 +10,11 @@
     "start": "nuxt start"
   },
   "dependencies": {
+    "@turf/boolean-point-in-polygon": "^6.5.0",
+    "@turf/turf": "^6.5.0",
     "core-js": "^3.15.0",
-    "nuxt": "^2.15.7",
     "leaflet": "^1.7.1",
+    "nuxt": "^2.15.7",
     "vue2-leaflet": "^2.7.1"
   },
   "devDependencies": {
